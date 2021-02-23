@@ -1,6 +1,6 @@
 {
   "name": "rubab",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Rubab is a simpler way for using React or Vue or any frontend-js framework with Django.",
   "main": "webpack.config.js",
   "scripts": {
