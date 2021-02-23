@@ -23,7 +23,7 @@ watch : https://www.youtube.com/watch?v=rvoZKQn2Go8
 
 
 To Run: 
-create an virtual environment and then run 
+create a virtual environment and then run 
 ```
 pip install -r requirement.txt
 ```
