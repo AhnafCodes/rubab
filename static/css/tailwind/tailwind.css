@@ -1,0 +1,4 @@
+/*names of files tailwind.css  and styles.css have been switch, unlike tailwind documentation     */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

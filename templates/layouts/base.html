@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>Rubab</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/tailwind/styles.css"/>
+    <!--changed path if you are using a cdn to load statics-->
+
+    {% block app_css %}
+    {% endblock app_css %}
+    {% block app_scripts_top %}
+    {% endblock app_scripts_top%}
+    <!-- // if you are using font-awesome
+    <link
+            href="/static/com/css/fontawesome/css/font-awesome.min.css"
+            rel="stylesheet"
+    />-->
+</head>
+<body><!--add class and related style tag in the base template-->
+    <div> <!--add head and footer sections based on you projects design to be extended in app's related html/templates-->
+        <main id="main">
+            {% block main_content %}
+            {% endblock main_content%}
+        </main>
+    </div>
+    <script src="/static/js/views/react.js"></script>
+    <!--changed path if you are using a cdn to load statics-->
+    {% block app_scripts_bottom %}
+	{% endblock app_scripts_bottom%}
+</body>
+</html>

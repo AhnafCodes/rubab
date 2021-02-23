@@ -1,0 +1,9 @@
+/node_modules/
+/migrations/
+migrations
+node_modules
+.vscode/*
+package-lock.json
+.idea/*
+*.js.map
+*~
