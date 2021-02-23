@@ -20,3 +20,23 @@ watch : https://www.youtube.com/watch?v=rvoZKQn2Go8
 4. Handling initial load of data/metadata(not private/user sensitive data) without api/service call.
    This is done using templatetags, this feel weird even ugly.
    
+
+
+To Run: 
+create an virtual environment and then run 
+```
+pip install -r requirement.txt
+```
+Install node_modules for Js
+```
+npm install
+```
+Run Django
+```
+python manage.pu runserver
+```
+
+Open another terminal build and watch Js(you are not running another for Js/statics)
+```
+npm run build-dev
+```
