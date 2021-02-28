@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import CollapseList from "./collapse-list.js";
 
 const healthyInstructions = [
+  "brush Teeth",
   "Start your day with a glass of water(or lemon water)",
   "Exercise",
   "Eat a good breakfast",

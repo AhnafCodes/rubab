@@ -2,11 +2,11 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        demos: './demos/static/demos/js/index.js',
+        demos: './demos/jsx/index.js',
     },
     output: {
-        filename: '[name].js',
-        path: __dirname + '/static/js/views'
+        filename: '[name].gen.js',
+        path: __dirname + '[name]/static/[name]/js'
     },
     devtool: "source-map",
     module: {

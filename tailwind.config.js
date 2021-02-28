@@ -1,7 +1,7 @@
 // tailwind.config.js
 module.exports = {
   purge: [
-    '/**/static/**/*.js',//apps html
+    '/**/jsx/**/*.js',//apps js or jsx
     '/**/templates/**/*.html',//apps html
     './templates/**/*.html',
   ],

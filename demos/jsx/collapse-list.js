@@ -25,7 +25,7 @@ const CollapseList = ({ classes, heading, listItems, listName }) => {
       <ul className={`ml-4 mt-2 ${expanded ? "" : "hidden"}`} id={listName}>
         {listItems.map((item, index) => (
           <li key={`${listName}-item-${index}`}>
-            {index + 1}. {item}
+            <span>{index + 1}. {item}</span>
           </li>
         ))}
       </ul>
