@@ -53,5 +53,4 @@ Open another terminal to  build css (you are not running another for Js/statics)
 ```commandline
 npm run build-css
 ```
-Please check 
-http://localhost:8000/demos/demo1/ for simple example 
+Once running please check "http://localhost:8000/demos/demo1/" for simple example 
