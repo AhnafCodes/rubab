@@ -5,8 +5,8 @@ Some ideas below might feel counter-intuitive but are actually reasonable and mi
 
 
 1. No need to run separate server for Js(even during development).
-   - live reloading over-hipped. And perhaps can be achieved with django too.
-2. No need bundle all Js in a huge bundle and pore much thought on code splitting.
+   - NOTE: lacks live-reloading. Live-reloading is not a make/break feature for most and perhaps can be achieved with django too.
+2. No need to bundle all Js in a huge bundle and pore much thought on code splitting later.
    - Django already has concept of app, so on similar line we can have generated(using snowpack/webpack) 1 Js for an app. If needed we can have 2-3 Js generated files
 3. Each Django template/route loads following files(different set files based on roles/authentication):
     1. 1 html /loading template
