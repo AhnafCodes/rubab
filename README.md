@@ -42,7 +42,7 @@ Run Django
 python manage.py runserver
 ```
 
-Open another terminal to build and watch Js(you are not running another for Js/statics)
+Open another terminal to build and watch Js(you aren't running another dev-server for Js/statics)
 ```commandline 
 npm run build-dev
 ```
