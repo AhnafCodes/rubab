@@ -27,7 +27,7 @@ create a virtual environment and then run
 ```commandline
 pip install -r requirement.txt
 ```
-create "SECRET_KEY" to add it to settings.py using python/django shell
+create a "SECRET_KEY" using python/django shell and add it to settings.py 
 
 ```python
 from django.core.management.utils import get_random_secret_key
