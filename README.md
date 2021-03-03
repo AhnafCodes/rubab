@@ -47,7 +47,7 @@ Open another terminal to build and watch Js(you aren't running another dev-serve
 npm run build-dev
 ```
 
-Open another terminal to  build css (you are not running another for Js/statics)
+Open another terminal to  build css
 ```commandline
 npm run build-css
 ```
