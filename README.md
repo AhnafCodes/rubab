@@ -15,8 +15,8 @@ Some ideas below might feel counter-intuitive but are actually reasonable and mi
     4. 1-2 CSS, Tailwind CSS or Sass can be used or you might not need this if you use react's library like material-ui
     5. 1 vendor/shared JS (optional)
     
-  - So 4-7 files per app/page, it's not bad. Actually it might be more performant, responsive and maintainable than loading giant BLOB with Js, CSS...
-  - Even a different set of files may be added to a tempalte based on roles/authentication
+    - So 4-7 files per app/page, it's not bad. Actually it might be more performant, responsive and maintainable than loading giant BLOB with Js, CSS...
+    - Even a different set of files may be added to a tempalte based on roles/authentication
    
 4. Handling initial load of data/metadata(not private/user sensitive data) without api/service call.
    This is done using templatetags, this might feel weird, even ugly. 
