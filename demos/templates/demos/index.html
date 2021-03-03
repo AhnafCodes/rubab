@@ -1,7 +1,16 @@
 {% extends 'layouts/base.html' %}
+{% load py_to_js_utils %}
 {% block app_css %}
 {% endblock %}
+{% block app_scripts_top %}
+    <script>
+         var rubab = window.rubab || {};
+         rubab.demos = {
+             'healthyInstructions': {{  healthy_instructions | js_obj  }}
+         }
 
+    </script>
+{% endblock app_scripts_top %}
 
 
 {% block main_content %}
