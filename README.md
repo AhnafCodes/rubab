@@ -1,7 +1,6 @@
-Rubab is a simpler way for using React or Vue or any frontend-js framework with Django. 
+Rubab is a simpler way for using React or Vue or any frontend-js framework with Django, a simpler integration of UI frameworks with Django.
 
-Idea is to leverage Django templating, routing and existing app(s) based structure. This way, we can better use Django's features rather than just using it for DRF and few other features. 
-Some ideas below might feel counter-intuitive but are actually reasonable and might be the better choices.
+Idea is to leverage Django templating, routing and existing app(s) based structure. This way, we can better use Django's features rather than just using it for DRF and few other features. Some ideas below might feel counter-intuitive but are actually reasonable and might be the better choices.
 
 
 1. No need to run separate server for Js(even during development).
