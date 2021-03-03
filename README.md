@@ -18,7 +18,7 @@ Some ideas below might feel counter-intuitive but are actually reasonable and mi
     So 4-7 files per app/page, it's not bad. Actually it might be more performant, responsive and maintainable than loading giant BLOB with Js, CSS...
    
 4. Handling initial load of data/metadata(not private/user sensitive data) without api/service call.
-   This is done using templatetags, this feel weird even ugly.
+   This is done using templatetags, this might feel weird, even ugly. 
    
 To Run: 
 create a virtual environment and then run 
