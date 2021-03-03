@@ -12,7 +12,7 @@ Some ideas below might feel counter-intuitive but are actually reasonable and mi
     1. 1 html /loading template
     2. 1 Js  generated for the app 
     3. 1 Js for React/Vue shared cross apps of the project, so that cached copy is used on navigating to a different app/route.
-    4. 1-2 CSS, Tailwind CSS or Sass can be used
+    4. 1-2 CSS, Tailwind CSS or Sass can be used or you might not need this if you use react's library like material-ui
     5. 1 vendor/shared JS (optional)
     
     So 4-7 files per app/page, it's not bad. Actually it might be more performant, responsive and maintainable than loading giant BLOB with Js, CSS...
