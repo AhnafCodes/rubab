@@ -21,7 +21,7 @@ Idea is to leverage Django templating, routing and existing app(s) based structu
    This is done using templatetags, this might feel weird, even ugly. 
    
 To Run: 
-create a virtual environment and then run 
+create a virtual environment, activate that environment and then run 
 ```commandline
 pip install -r requirement.txt
 ```
