@@ -24,19 +24,33 @@ Some ideas below might feel counter-intuitive but are actually reasonable and mi
 
 To Run: 
 create a virtual environment and then run 
-```
+```commandline
 pip install -r requirement.txt
 ```
-Install node_modules for Js
+create "SECRET_KEY" to add it to settings.py using python/django shell
+
+```python
+from django.core.management.utils import get_random_secret_key
+
+print(get_random_secret_key())
 ```
+
+Install node_modules for Js
+```commandline
 npm install
 ```
 Run Django
-```
+```commandline
 python manage.py runserver
 ```
 
-Open another terminal build and watch Js(you are not running another for Js/statics)
-```
+Open another terminal to build and watch Js(you are not running another for Js/statics)
+```commandline 
 npm run build-dev
 ```
+
+Open another terminal to  build css (you are not running another for Js/statics)
+```commandline
+npm run build-css
+```
+Please check 
