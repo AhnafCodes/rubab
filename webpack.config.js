@@ -2,11 +2,12 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        demos: './demos/jsx/index.js',
+        'demos/static/demos/js/demos': './demos/jsx/index.js',
     },
     output: {
-        filename: '[name].gen.js',
-        path: __dirname + '[name]/static/[name]/js'
+        filename: pathData => pathData.chunk.name === 'react' ? 'static/js/react.gen.js':'[name].gen.js',
+        /*.gen is an extension I made up  to differentiate webpack generated file and can be used to add to gitignore if needed */
+        path: __dirname
     },
     devtool: "source-map",
     module: {

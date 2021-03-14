@@ -76,10 +76,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _collapse_list_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collapse-list.js */ "./demos/jsx/collapse-list.js");
+var _window, _window$rubab;
 
 
 
-var healthyInstructions = ["brush Teeth", "Start your day with a glass of water(or lemon water)", "Exercise", "Eat a good breakfast", "Stay hydrated and have a fruit/snack", "Eat a healthy Lunch", "Take break for 10 minute afternoon walk", "Have short Dinner", "Head to bed early", "Have 6 to 10 hour of relaxed sleep"];
+
+
+var _window$rubab$demos = (_window = window) === null || _window === void 0 ? void 0 : (_window$rubab = _window.rubab) === null || _window$rubab === void 0 ? void 0 : _window$rubab.demos,
+    healthyInstructions = _window$rubab$demos.healthyInstructions;
+
 react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_collapse_list_js__WEBPACK_IMPORTED_MODULE_2__.default, {
   classes: "ml-4 mt-4",
   heading: "Instructions",
