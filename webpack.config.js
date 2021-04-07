@@ -1,8 +1,12 @@
 const path = require("path");
-
+const apps = require("./apps.json");
+const entries = {};
+Object.keys(apps).forEach( app => {
+    entries[`${app}/static/${app}/js/${app}`] = `./${app}/jsx/index.js`
+})
 module.exports = {
     entry: {
-        'demos/static/demos/js/demos': './demos/jsx/index.js',
+        ...entries
     },
     output: {
         filename: pathData => pathData.chunk.name === 'react' ? 'static/js/react.gen.js':'[name].gen.js',
