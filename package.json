@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-prod": "webpack -w",
+    "build-prod": "webpack",
     "build-dev": "webpack --mode=development -w",
     "post-build-dev": "npm run build-css",
     "build-css": "npx tailwindcss-cli@latest build static/css/tailwind/tailwind.css -o static/css/tailwind/styles.css",
