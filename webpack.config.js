@@ -1,3 +1,4 @@
+//config below generates multiple Js bundle files(one per Django app), instead of one large bundle Js file.  
 const path = require("path");
 const apps = require("./apps.json");
 const entries = {};
