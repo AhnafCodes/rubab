@@ -19,21 +19,25 @@ Idea is to leverage Django templating, routing and existing app(s) based structu
    
 4. Handling initial load of data/metadata(not private/user sensitive data) without api/service call.
    This is done using templatetags, this might feel weird, even ugly. 
-   ```commandline
-    // myapp/templatetags/js_utils.py
-from django.utils.safestring import mark_safe
-from django.template import Library
-import json
-register = Library()
-@register.filter(is_safe=True)
-def jsObject(obj):
-    return mark_safe(json.dumps(obj)) 
-template
+```commandline
+    # myapp/templatetags/js_utils.py
+      from django.utils.safestring import mark_safe
+      from django.template import Library
+      import json
+      register = Library()
+      @register.filter(is_safe=True)
+      def jsObject(obj):
+          return mark_safe(json.dumps(obj)) 
+```          
+```commandline          
+          
+     # using templatetag in app template
 
-{% load js_utils %}
-<script type="text/javascript">
-    const metadataObject = {{ metadata_dict| jsObject }};
-</script>   ```
+      {% load js_utils %}
+      <script type="text/javascript">
+          const metadataObject = {{ metadata_dict| jsObject }};
+      </script>   
+```
    
 To Run: 
 create a virtual environment, activate that environment and then run 
