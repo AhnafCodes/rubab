@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import CollapseList from "./collapse-list.js";
 
-const { healthyInstructions } = window?.rubab?.demos;
+const healthyInstructions = JSON.parse(document.getElementById("demos-healthy-instructions").textContent);
 
 ReactDOM.render(
   <CollapseList

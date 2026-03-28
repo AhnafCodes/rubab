@@ -71,10 +71,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'libraries':{
-                'py_to_js_utils': 'templatetags.py_to_js_utils',
-
-            }
         },
     },
 ]

@@ -1,73 +1,83 @@
-Rubab is a simpler way for using React or Vue or any frontend-js framework with Django, a simpler integration of UI frameworks with Django.
+Rubab is a simpler way to use React, Vue, or any frontend JS framework with Django — a straightforward integration without a separate Node dev server.
 
-Idea is to leverage Django templating, routing and existing app(s) based structure. This way, we can better use Django's features rather than just using it only for DRF and few other features. Some ideas below might feel counter-intuitive but are actually reasonable and might be the better choices.
+The idea is to leverage Django's templating, routing, and app-based structure, rather than reducing Django to just an API backend. Some of the choices below may feel counter-intuitive but are deliberate.
 
+## How it works
 
-1. No need to run separate server for Js(even during development).
-   - NOTE: lacks live-reloading. Live-reloading is not a make/break feature for most and perhaps can be achieved with django too.
-2. No need to bundle all Js in a huge bundle and pore much thought on code splitting later.
-   - Django already has concept of app, so on similar line we can have generated(using snowpack/webpack) in 1 Js for an app. If needed, we can have 2-3 Js generated files
-3. Each Django template/route loads following files:
-    1. 1 html /loading template
-    2. 1 Js  generated for the app 
-    3. 1 Js for React/Vue shared cross apps of the project, so that cached copy is used on navigating to a different app/route.
-    4. 1-2 CSS, Tailwind CSS or Sass can be used or you might not need this if you use react's library like material-ui
-    5. 1 vendor/shared JS (optional)
-    
-    - So 4-7 files per app/page, it's not bad. Actually it might be more performant, responsive and maintainable than loading giant BLOB with Js, CSS...
-    - Even a different set of files may be added to a tempalte based on roles/authentication.
-   
-4. Handling initial load of data/metadata(not private/user sensitive data) without api/service call.
-   This is done using templatetags, this might feel weird, even ugly. 
-```commandline
-    # myapp/templatetags/js_utils.py
-      from django.utils.safestring import mark_safe
-      from django.template import Library
-      import json
-      register = Library()
-      @register.filter(is_safe=True)
-      def jsObject(obj):
-          return mark_safe(json.dumps(obj)) 
-```          
-```commandline          
-          
-     # using templatetag in app template
+**1. No separate JS dev server**
+JS is built with Webpack and served as static files by Django. No `npm run dev` proxy, no CORS config.
+> Note: live-reloading is not included. Run `npm run build-dev` in watch mode as an alternative.
 
-      {% load js_utils %}
-      <script type="text/javascript">
-          const metadataObject = {{ metadata_dict| jsObject }};
-      </script>   
+**2. Per-app JS bundles, not one giant bundle**
+Django already has the concept of apps. Each app gets its own compiled JS file. React (or Vue) is extracted into a single shared bundle cached across all app navigations. No upfront code-splitting decisions needed.
+
+**3. What each page loads**
+- 1 HTML template
+- 1 app JS bundle (e.g. `demos.gen.js`)
+- 1 shared React/Vue bundle (`react.gen.js`) — browser-cached across pages
+- 1–2 CSS files (Tailwind or Sass)
+- 1 vendor/shared JS (optional)
+
+That's 4–7 files per page. More predictable and maintainable than a single large bundle, and different files can be loaded per template based on role or authentication state.
+
+**4. Passing server-side data to JavaScript**
+Initial data (non-sensitive metadata) is passed from Django views to JS using Django's built-in `json_script` filter — no custom template tags or `mark_safe` hacks needed.
+
+In the view:
+```python
+def my_view(request):
+    context = {'my_data': {'name': 'Django', 'version': '5.0'}}
+    return render(request, 'my_template.html', context)
 ```
-   
-To Run: 
-create a virtual environment, activate that environment and then run 
-```commandline
+
+In the template:
+```html
+{{ my_data|json_script:"my-data" }}
+```
+
+Django renders this as a safely escaped JSON script tag:
+```html
+<script id="my-data" type="application/json">{"name": "Django", "version": "5.0"}</script>
+```
+
+In JavaScript:
+```javascript
+const myData = JSON.parse(document.getElementById("my-data").textContent);
+```
+
+This approach is XSS-safe — Django escapes `<`, `>`, `&`, and quotes inside the JSON automatically.
+
+## Getting started
+
+Create and activate a virtual environment, then install Python dependencies:
+```
 pip install -r requirement.txt
 ```
-create a "SECRET_KEY" using python/django shell and add it to settings.py 
 
+Generate a `SECRET_KEY` and add it to `settings.py`:
 ```python
 from django.core.management.utils import get_random_secret_key
-
 print(get_random_secret_key())
 ```
 
-Install node_modules for Js
-```commandline
+Install JS dependencies:
+```
 npm install
 ```
-Run Django
-```commandline
+
+Run Django:
+```
 python manage.py runserver
 ```
 
-Open another terminal to build and watch Js(you aren't running another dev-server for Js/statics)
-```commandline 
+In a second terminal, build and watch JS:
+```
 npm run build-dev
 ```
 
-Open another terminal to  build css
-```commandline
+In a third terminal, build CSS:
+```
 npm run build-css
 ```
-Once running please check "http://localhost:8000/demos/demo1/" for simple example 
+
+Visit `http://localhost:8000/demos/demo1/` to see a working example.
